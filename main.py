@@ -5,15 +5,11 @@ from langchain import OpenAI
 from langchain.document_loaders import DirectoryLoader
 from langchain.chains  import RetrievalQA
 from langchain.chains.question_answering import load_qa_chain
-from dotenv import load_dotenv
 import magic
-import os
 import nltk
-
-load_dotenv()
+from env_loader import OPENAI_API_KEY
 
 # Remove API key before commiting
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 loader = DirectoryLoader('./data', glob='**/*.txt*')
 document = loader.load()
